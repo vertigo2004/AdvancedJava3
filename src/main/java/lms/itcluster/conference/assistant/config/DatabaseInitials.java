@@ -46,7 +46,7 @@ public class DatabaseInitials {
             Topic t1 = new Topic();
             t1.setTitle("My First Topic");
             t1.setSpeaker("Me Myself and I");
-            t1.setConf(c1);
+            t1.setConference(c1);
             t1 = topicRepository.save(t1);
 
             Guest g1 = new Guest();
@@ -75,7 +75,7 @@ public class DatabaseInitials {
             Topic t2 = new Topic();
             t2.setTitle("My Second Topic");
             t2.setSpeaker("Me Myself and I");
-            t2.setConf(c1);
+            t2.setConference(c1);
             t2 = topicRepository.save(t2);
 
             q1 = new Question();

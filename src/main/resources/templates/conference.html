@@ -7,8 +7,19 @@
 </head>
 <body>
 <h1>Hello <span th:text="${name}"/>!</h1>
-<p>Conference: <div th:text="${conf.getName()}"></div>
-<p>Would be provided on: <div th:text="${conf.getDate()}"></div>
-<p>The Venue: <div th:text="${conf.getVenue()}"></div>
+<p>Conference:
+<div th:text="${conf.getName()}"></div>
+<p>Would be provided on:
+<div th:text="${conf.getDate()}"></div>
+<p>The Venue:
+<div th:text="${conf.getVenue()}"></div>
+<p>The Description:
+<div th:text="${conf.getDescription()}"></div>
+
+<div th:each="t : ${topics}">
+    <a th:href="@{'/topic/' + ${t.getId()} + '/guest 2'}"><span th:text="${t.title}">Topic Title</span></a>
+    <span th:text="${t.getSpeaker()}">Speacer Info</span>
+</div>
+
 </body>
 </html>

@@ -21,7 +21,5 @@ public class Topic {
     private String annotation;
 
     @ManyToOne
-    private Conference conf;
-
-
+    private Conference conference;
 }
