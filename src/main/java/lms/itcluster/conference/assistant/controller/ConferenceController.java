@@ -6,7 +6,11 @@ import lms.itcluster.conference.assistant.service.ConferenceService;
 import lms.itcluster.conference.assistant.service.TopicService;
 import lms.itcluster.conference.assistant.service.dto.ConferenceDto;
 import lms.itcluster.conference.assistant.service.dto.TopicDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+@Slf4j
 @Controller
 public class ConferenceController {
 
@@ -50,24 +55,18 @@ public class ConferenceController {
         return "moderator";
     }
 
-    @GetMapping("/conference")
-    public String showConference(@RequestParam(name = "confId") Long confId, Model model) {
+    @GetMapping("/conference/{confId}")
+    public String showConference(@PathVariable Long confId,
+                                 Model model) {
+
+        UserDetails ud = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        log.info("User: {}", ud.getUsername());
         ConferenceDto conf = conferenceService.findById(confId);
         List<TopicDto> topics = topicService.findByConfId(confId);
 
         model.addAttribute("conf", conf);
         model.addAttribute("topics", topics);
-
-        return "conference";
-    }
-
-    @GetMapping("/conference/{confId}/name/{name}")
-    public String showOneMoreConference(@PathVariable Long confId,
-                                        @PathVariable String name,
-                                        Model model) {
-        ConferenceDto conf = conferenceService.findById(confId);
-        model.addAttribute("conf", conf);
-        model.addAttribute("name", name);
+        model.addAttribute("name", ud.getUsername());
 
         return "conference";
     }

@@ -18,7 +18,7 @@
 <div th:text="${conf.getDescription()}"></div>
 
 <div th:each="t : ${topics}">
-    <a th:href="@{'/topic/' + ${t.getId()} + '/guest 2'}"><span th:text="${t.title}">Topic Title</span></a>
+    <a th:href="@{'/topic/' + ${t.getId()}}"><span th:text="${t.title}">Topic Title</span></a>
     <span th:text="${t.getSpeaker()}">Speacer Info</span>
 </div>
 

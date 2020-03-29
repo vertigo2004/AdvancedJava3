@@ -16,6 +16,6 @@ public class QuestionController {
     public String addQuestion(QuestionDto question) {
         questionService.addQuestion(question);
 
-        return "redirect:/topic/" + question.getTopicId() + "/guest 2";
+        return "redirect:/topic/" + question.getTopicId();
     }
 }

@@ -21,7 +21,7 @@
 <form th:action="@{/add-question}" method="POST">
     <input type="text" th:name="body">
     <input type="hidden" th:name="topicId" th:value="${topic.getId()}">
-    <input type="hidden" th:name="authorId" th:value="${curentGuest.getId()}">
+    <input type="hidden" th:name="authorId" th:value="${guestId}">
     <input type="submit"/>
 </form>
 
