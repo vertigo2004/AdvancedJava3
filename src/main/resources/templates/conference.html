@@ -3,18 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="#{conference.title}">Title</title>
 </head>
 <body>
-<h1>Hello <span th:text="${name}"/>!</h1>
-<p><a href="/logout" th:href="@{/logout}">Logout</a>
-<p>Conference:
+<h1 th:text="#{conference.hello} + ' ' + ${name}">Hello <span th:text=""/>!</h1>
+<p><a href="/logout" th:href="@{/logout}" th:text="#{logout}">Logout</a>
+<p th:text="#{conference.conference}">Conference:
 <div th:text="${conf.getName()}"></div>
-<p>Would be provided on:
+<p th:text="#{conference.providedon}">Would be provided on:
 <div th:text="${conf.getDate()}"></div>
-<p>The Venue:
+<p th:text="#{conference.venue}">The Venue:
 <div th:text="${conf.getVenue()}"></div>
-<p>The Description:
+<p th:text="#{conference.description}">The Description:
 <div th:text="${conf.getDescription()}"></div>
 
 <div th:each="t : ${topics}">
