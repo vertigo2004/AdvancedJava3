@@ -34,4 +34,12 @@ public class Guest {
     public int hashCode() {
         return Objects.hash(id, email);
     }
+
+    @Override
+    public String toString() {
+        return "Guest{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

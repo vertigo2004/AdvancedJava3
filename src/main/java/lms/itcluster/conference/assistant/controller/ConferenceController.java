@@ -1,8 +1,6 @@
 package lms.itcluster.conference.assistant.controller;
 
-import lms.itcluster.conference.assistant.domain.Conference;
 import lms.itcluster.conference.assistant.domain.Guest;
-import lms.itcluster.conference.assistant.domain.Topic;
 import lms.itcluster.conference.assistant.repo.GuestRepository;
 import lms.itcluster.conference.assistant.service.ConferenceService;
 import lms.itcluster.conference.assistant.service.TopicService;
@@ -35,6 +33,21 @@ public class ConferenceController {
 
         model.addAttribute("confs", conferenceService.findAll());
         return "homePage";
+    }
+
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
+    }
+
+    @GetMapping("/admin")
+    public String adminPage() {
+        return "admin";
+    }
+
+    @GetMapping("/moderator")
+    public String moderatorPage() {
+        return "moderator";
     }
 
     @GetMapping("/conference")

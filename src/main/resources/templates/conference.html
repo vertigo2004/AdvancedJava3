@@ -7,6 +7,7 @@
 </head>
 <body>
 <h1>Hello <span th:text="${name}"/>!</h1>
+<p><a href="/logout" th:href="@{/logout}">Logout</a>
 <p>Conference:
 <div th:text="${conf.getName()}"></div>
 <p>Would be provided on:
