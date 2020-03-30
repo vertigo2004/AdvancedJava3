@@ -5,7 +5,8 @@
     <title>Topic and Questions</title>
 </head>
 <body>
-<h1 th:text="${topic.getTitle()}"/>
+<div th:insert="base-layout :: header"></div>
+<h2 th:text="${topic.getTitle()}"/>
 <table border="2">
     <tr th:each="q : ${questions}">
         <td th:text="${q.getBody()}"></td>
@@ -25,5 +26,6 @@
     <input type="submit"/>
 </form>
 
+<div th:insert="base-layout :: footer"></div>
 </body>
 </html>

@@ -7,7 +7,8 @@
 </head>
 
 <body>
-<h1>Conference List</h1>
+<div th:insert="base-layout :: header"></div>
+<h2>Conference List</h2>
     <div th:each="c : ${confs}">
         <a th:href="@{'/conference/' + ${c.id}}">
             <span th:text="${c.name}">Conference name</span>
@@ -15,5 +16,6 @@
         <span th:text="${c.date}">Conference Date</span>
         <span th:text="${c.getDescription()}">Conference Description</span>
     </div>
+<div th:insert="base-layout :: footer"></div>
 </body>
 </html>

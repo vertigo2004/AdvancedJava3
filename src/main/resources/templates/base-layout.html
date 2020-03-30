@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1 th:text="#{header.conference}"/>
+    <a href="?lang=uk">uk</a>
+    <a href="?lang=en">en</a>
+</div>
+
+<div th:fragment="footer">
+<p><p>    (c) 2020 IT Cluster Academy
+</div>
+</body>
+</html>
