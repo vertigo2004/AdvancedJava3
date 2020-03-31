@@ -1,6 +1,7 @@
 package lms.itcluster.conference.assistant.controller;
 
 import lms.itcluster.conference.assistant.domain.Guest;
+import lms.itcluster.conference.assistant.exception.NoSuchConferenceException;
 import lms.itcluster.conference.assistant.repo.GuestRepository;
 import lms.itcluster.conference.assistant.service.ConferenceService;
 import lms.itcluster.conference.assistant.service.TopicService;
@@ -13,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -69,6 +71,12 @@ public class ConferenceController {
         model.addAttribute("name", ud.getUsername());
 
         return "conference";
+    }
+
+    @ExceptionHandler(NoSuchConferenceException.class)
+    public String noSuchConfExceptionHandler() {
+
+        return "conferenceError";
     }
 
 
