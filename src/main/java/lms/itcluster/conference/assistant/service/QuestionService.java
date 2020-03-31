@@ -10,4 +10,7 @@ public interface QuestionService {
     List<QuestionDto> getQuestionByTopicId(long topicId, String email);
 
     QuestionDto addQuestion(QuestionDto dto);
+
+    QuestionDto like(long questionId, long guestId);
+
 }

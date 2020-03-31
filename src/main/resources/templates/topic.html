@@ -13,7 +13,7 @@
         <td th:text="'Liked '+ ${q.liked} + ' times'"></td>
         <td>
             <div th:if="${q.isLikedByGuest}">Already Liked</div>
-            <div th:if="${!q.isLikedByGuest}">Like Me</div>
+            <div th:if="${!q.isLikedByGuest}"><a th:href="'/like/' + ${q.getId()}">Like</a></div>
         </td>
     </tr>
 </table>

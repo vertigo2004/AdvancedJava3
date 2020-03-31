@@ -64,4 +64,14 @@ public class QuestionServiceImpl implements QuestionService {
 
         return QuestionMapper.toDto(questionRepository.save(question), true, question.getLikes().size());
     }
+
+    @Override
+    public QuestionDto like(long questionId, long guestId) {
+        Guest guest = guestRepository.findById(guestId).get();
+        Question question = questionRepository.findById(questionId).get();
+        question.getLikes().add(guest);
+
+        return QuestionMapper.toDto(questionRepository.save(question), true, question.getLikes().size());
+    }
+
 }
