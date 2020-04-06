@@ -62,7 +62,11 @@ public class ConferenceController {
                                  Model model) {
 
         UserDetails ud = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        log.error("Error User: {}", ud.getUsername());
+        log.warn("User: {}", ud.getUsername());
         log.info("User: {}", ud.getUsername());
+        log.debug("User: {}", ud.getUsername());
+        log.trace("User: {}", ud.getUsername());
         ConferenceDto conf = conferenceService.findById(confId);
         List<TopicDto> topics = topicService.findByConfId(confId);
 
